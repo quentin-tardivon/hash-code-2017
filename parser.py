@@ -1,5 +1,5 @@
-def parse():
-    data = open("data.in", "r")
+def parse(path):
+    data = open(path, "r")
 
     # First line parsing
     line = data.readline()
@@ -33,3 +33,5 @@ def parse():
 
     #Closing file
     data.close()
+
+    return videosSize, endpointLatency,videoRequestByEndpoint
