@@ -12,3 +12,4 @@ def algo(videosSize, endpointLatency,videoRequestByEndpoint, videoRequestDesc, e
                     break
             else:
                 break
+    return videosInCache
