@@ -1,10 +1,20 @@
+tab = [[3, 2], [4, 5], [2,1]]
+import parser as ps
+
+videoSize, endpointLatency, videoRequestByEndpoint = ps.parse("me_at_the_zoo.in")
+
 def quickSortTuple(tab):
     indiceTab = []
     tabValue = []
     for i in range(len(tab)):
-        for j in range(len(tab[i])):
-            indiceTab.append((i,j))
-            tabValue.append(tab[i][j])
+
+        if type(tab[i]) is int:
+            indiceTab.append(i)
+            tabValue.append(tab[i])
+        else:
+            for j in range(len(tab[i])):
+                indiceTab.append((i,j))
+                tabValue.append(tab[i][j])
 
 
     return tabValue,indiceTab
@@ -43,7 +53,7 @@ def partition(alist, indiceTab,first,last):
            done = True
        else:
            temp = alist[leftmark]
-           temIndice = indiceTab[leftmark]
+           tempIndice = indiceTab[leftmark]
            alist[leftmark] = alist[rightmark]
            indiceTab[leftmark] = indiceTab[rightmark]
            alist[rightmark] = temp
