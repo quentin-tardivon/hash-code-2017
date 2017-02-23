@@ -34,4 +34,4 @@ def parse(path):
     #Closing file
     data.close()
 
-    return videosSize, endpointLatency,videoRequestByEndpoint
+    return videosSize, endpointLatency,videoRequestByEndpoint, V, E, R, C, X
