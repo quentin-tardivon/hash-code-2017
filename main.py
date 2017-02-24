@@ -3,7 +3,7 @@ import simplesort as simplest
 import parser as ps
 import algo
 
-result = ps.parse("me_at_the_zoo.in")
+result = ps.parse("videos_worth_spreading.in")
 videoSize = result[0]
 endpointLatency = result[1]
 videoRequestByEndpoint = result[2]
@@ -17,10 +17,11 @@ endpointLatencyAsc = [[]]
 for i in range(len(endpointLatency)):
     endpointLatencyAsc.append(simplest.quickSort(endpointLatency[i]))
 
-print endpointLatencyAsc
 endpointLatencyAsc.pop(0)
 
 
 videoRequestDesc = list(reversed(st.quickSort(videoRequestByEndpoint)))
 
-print algo.algo(videoSize, endpointLatency,videoRequestByEndpoint, videoRequestDesc, endpointLatencyAsc, V, E, R, C, X)
+result = algo.algo(videoSize, endpointLatency,videoRequestByEndpoint, videoRequestDesc, endpointLatencyAsc, V, E, R, C, X)
+
+ps.output(result)

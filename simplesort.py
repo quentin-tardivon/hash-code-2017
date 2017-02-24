@@ -8,8 +8,27 @@ def quickSortTuple(tab):
 
 def quickSort(tab):
    alist, indiceTab = quickSortTuple(tab)
-   quickSortHelper(alist, indiceTab,0,len(alist)-1)
+   quick_sort_iterative(alist, indiceTab,0,len(alist)-1)
    return indiceTab
+
+def quick_sort_iterative(alist, tab, left, right):
+    """
+    Iterative version of quick sort
+    """
+    temp_stack = []
+    temp_stack.append((left,right))
+
+    #Main loop to pop and push items until stack is empty
+    while temp_stack:
+        pos = temp_stack.pop()
+        right, left = pos[1], pos[0]
+        piv = partition(alist, tab,left,right)
+        #If items in the left of the pivot push them to the stack
+        if piv-1 > left:
+            temp_stack.append((left,piv-1))
+        #If items in the right of the pivot push them to the stack
+        if piv+1 < right:
+            temp_stack.append((piv+1,right))
 
 def quickSortHelper(alist, indiceTab,first,last):
    if first<last:

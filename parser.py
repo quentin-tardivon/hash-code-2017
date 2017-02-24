@@ -35,3 +35,22 @@ def parse(path):
     data.close()
 
     return videosSize, endpointLatency,videoRequestByEndpoint, V, E, R, C, X
+
+def output(videosInCache):
+    count = 0
+    for x in videosInCache:
+        if x != []:
+            count +=1
+
+    result = str(count)
+    for i in range(len(videosInCache)):
+        if not videosInCache[i] == []:
+            result = result + "\n"
+            result = result + str(i) + " "
+            for j in range(len(videosInCache[i])):
+                result = result + str(videosInCache[i][j]) + " "
+
+    outputFile = open("output.out", 'r+')
+    outputFile.write(result)
+    outputFile.close()
+    return
