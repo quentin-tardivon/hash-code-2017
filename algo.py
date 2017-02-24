@@ -4,12 +4,13 @@ def algo(videosSize, endpointLatency,videoRequestByEndpoint, videoRequestDesc, e
     #request = (videoID, endpointID)
     for request in videoRequestDesc:
         #connection = (endpointID, cache)
-        for connection in [connections for connections in endPointLatencyDesc if (connections(0) == request(1))]:
-            if not (request(0) in videosInCache[connection(1)]):
-                if cacheFilled[connection(1)] > request(0):
-                    videosInCache[connection(1)].append(request(0))
-                    cacheFilled -= request(0)
+        for connection in endpointLatencyAsc:
+            if request[1] == connection[0]:
+                if not (request[0] in videosInCache[connection[1]]):
+                    if cacheFilled[connection[1]] > request[0]:
+                        videosInCache[connection[1]].append(request[0])
+                        cacheFilled -= request[0]
+                        break
+                else:
                     break
-            else:
-                break
     return videosInCache

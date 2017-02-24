@@ -1,14 +1,9 @@
-tab = [[3, 2], [4, 5], [2,1]]
-import parser as ps
-
 def quickSortTuple(tab):
     indiceTab = []
     tabValue = []
     for i in range(len(tab)):
-        for j in range(len(tab[i])):
-            indiceTab.append((i,j))
-            tabValue.append(tab[i][j])
-
+        indiceTab.append(i)
+        tabValue.append(tab[i])
     return tabValue,indiceTab
 
 def quickSort(tab):
